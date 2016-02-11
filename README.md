@@ -7,6 +7,8 @@ You will have to type in a four letter word, and then you will be given a defini
 with the word.
 
 ## Wireframes
+![img_6455](https://cloud.githubusercontent.com/assets/15571853/12976873/df159536-d0be-11e5-99a9-7ea3e94ab6a7.JPG)
+![img_6456](https://cloud.githubusercontent.com/assets/15571853/12976874/df181022-d0be-11e5-9557-687765d7a1d7.JPG)
 
 ## How?
 TDD! Blood sweat and tears (mostly from Robert).

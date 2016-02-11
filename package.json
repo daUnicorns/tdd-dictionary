@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/daUnicorns/Dictionary#readme",
   "dependencies": {
+    "env2": "^2.0.4",
     "querystring": "^0.2.0"
   },
   "devDependencies": {
