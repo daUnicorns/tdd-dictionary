@@ -1,5 +1,9 @@
 var fs = require('fs');
+var config = require('env2')('config.env');
 
+function printApi() {
+   return process.env.DB_API;
+}
 function wordImporter(value) {
   var words = fs.readFileSync('words.txt');
   var ArrayOfWords = words.toString().split('\n');
@@ -18,7 +22,6 @@ function arrayMaker(value) {
 }
 module.exports = {
    wordImporter: wordImporter,
-   arrayMaker: arrayMaker
+   arrayMaker: arrayMaker,
+   printApi: printApi
 };
-
-console.log(arrayMaker('A'));
