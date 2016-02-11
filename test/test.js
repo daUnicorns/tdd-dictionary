@@ -9,8 +9,16 @@ var apiKey = require("../apiKey.js"), api = apiKey.apiKey;
 //     t.end();
 // });
 
+QUnit.test( "hello test", function( assert ) {
+  assert.ok( 1 == "1", "Passed!" );
 
-assert.equal(typeof main, 'object');
-assert.equal(typeof main.import, 'function');
-
+  assert.equal(typeof main, 'object');
+  console.log("BOUH");
   assert.equal(main.getAPIobject(api, "cat"), "cat");
+}
+
+
+
+QUnit.test( "hello test", function( assert ) {
+  assert.ok( 1 == "1", "Passed!" );
+});
