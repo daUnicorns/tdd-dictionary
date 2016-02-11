@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "test",
+    "test": "./node_modules/.bin/tape ./test/*",
     "start": "node server.js"
   },
   "repository": {
@@ -27,5 +27,10 @@
   "homepage": "https://github.com/daUnicorns/Dictionary#readme",
   "dependencies": {
     "querystring": "^0.2.0"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.2",
+    "tape": "^4.4.0",
+    "xhr-browserify": "0.0.4"
   }
 }
