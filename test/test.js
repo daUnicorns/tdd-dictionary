@@ -16,4 +16,3 @@ test("bsdfbfgbgndnh", function(assert){
 test ("asdfasdfasdf", function(assert){
   assert.equal(typeof main.import, 'function');
 });
-  assert.equal(main.getAPIobject(api, "cat"), "cat");
