@@ -1,0 +1,31 @@
+{
+  "name": "da-dictionary",
+  "version": "1.0.0",
+  "description": "Building a game using the dictionary (words and definitions)",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daUnicorns/Dictionary.git"
+  },
+  "keywords": [
+    "dictionary",
+    "words",
+    "definition"
+  ],
+  "author": "daUnicorns",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daUnicorns/Dictionary/issues"
+  },
+  "homepage": "https://github.com/daUnicorns/Dictionary#readme",
+  "dependencies": {
+    "querystring": "^0.2.0"
+  }
+}
