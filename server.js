@@ -15,22 +15,25 @@ function handler(request, response){
     response.end(stylesheet);
     console.log('style.css has been sent');
   }
-  else if(url.length === 1) {
-    response.writeHead(200, {"Content-Type": "text/html"});
-    response.end(index);
-  } else if (request.method === 'POST' && request.url === '/search') {
+  else if (request.method === 'POST' && request.url === '/') {
     var body = '';
     request.on('data', function(chunk) {
       body += chunk;
     });
     request.on('end', function() {
       var data = qs.parse(body);
-      console.log(data);
-      // now you can access `data.email` and `data.password`
       response.writeHead(200);
-      response.end(JSON.stringify(data));
+      var dataObj = JSON.stringify(data.search);
+      var html = index.toString();
+      html += "<h2>" + dataObj + "</h2>";
+      response.end(html);
     });
-  } else if(url === '/words.txt') {
+  }
+  else if(url.length === 1) {
+    response.writeHead(200, {"Content-Type": "text/html"});
+    response.end(index);
+  }
+  else if(url === '/words.txt') {
     response.writeHead(200);
     console.log(words.toString());
     response.end(words);
