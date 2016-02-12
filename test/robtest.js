@@ -2,6 +2,9 @@ var test = require('tape');
 var main2 = require('../main2.js');
 var colors = require('colors');
 var main = require('../main.js');
+var istanbul = require('istanbul');
+var server = require('../server.js');
+
 test("tests if main.js has access to words.txt", function(t) {
    t.deepEquals(main2.wordImporter('A'), 0, "I can't believe it! A is position 0 in the array");
    t.end();
