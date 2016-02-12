@@ -1,5 +1,5 @@
 var fs = require('fs');
-var config = require('env2')('config.env');
+require('env2')('config.env');
 
 function printApi() {
    return process.env.DB_API;
