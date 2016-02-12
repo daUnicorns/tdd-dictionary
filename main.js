@@ -1,38 +1,41 @@
 // var apiKey = require("apiKey.js"), api = apiKey.apiKey;
-var http = require('http');
+var http        = require('http');
 var querystring = require('querystring');
-var config = require('env2')('config.env');
+var config      = require('env2')('config.env');
 
-var postData = querystring.stringify({
-  'msg': 'hello world'
-});
-
-function getAPIobject(api, searchedWord) {
-  console.log(typeof api);
+function getDefinition(apiKey, searchedWord, cb) {
   var options = {
     hostname: "api.wordnik.com",
-    path: "/v4/word.json/" + searchedWord + "/definitions?limit=200&includeRelated=true&useCanonical=false&includeTags=false&api_key=" + api,
+    path: "/v4/word.json/" + searchedWord + "/definitions?limit=200&includeRelated=true&useCanonical=false&includeTags=false&api_key=" + apiKey,
     method: "GET"
   };
-  callback = function(res) {
-    var body = '';
-    res.on('data', function(chunk) {
-      body += chunk;
+
+  var req = http.request(options, function(apiRes){
+    chunkingFunc(apiRes, function(body){
+      var definition = body[0].text;
+      return cb(definition);
     });
-    res.on('end', function() {
-      console.log(JSON.parse(body)[0].word);
-    });
-  };
-  http.request(options, callback).end();
+  });
+  req.end();
+}
 
-};
+function chunkingFunc(res, callback) {
 
-getAPIobject(process.env.DB_API, "book");
-
-
+  var body = '';
+  res.on('data', function(chunk) {
+    body += chunk;
+  });
+  res.on('end', function() {
+    var parsedBody = JSON.parse(body);
+    return callback(parsedBody);
+  });
+  res.on('error', function(e){
+    console.log("errorrrrrrrrrrrrrrrrrrrr" + e.message);
+  });
+}
 
 module.exports = {
-  getAPIobject : getAPIobject
+  getDefinition : getDefinition
 };
 
 // var body = '';
