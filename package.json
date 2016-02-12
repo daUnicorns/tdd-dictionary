@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "./node_modules/.bin/tape ./test/*",
-    "start": "node server.js"
+    "start": "node server.js",
+    "coverage": "istanbul cover ./test/*"
   },
   "repository": {
     "type": "git",

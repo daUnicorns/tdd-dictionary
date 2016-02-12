@@ -2,6 +2,8 @@ var test = require('tape');
 var main2 = require('../main2.js');
 var colors = require('colors');
 var main = require('../main.js');
+var istanbul = require('istanbul');
+var server = require('../server.js');
 
 ////////////////////////////// main.js tests //////////////////////////////
 
