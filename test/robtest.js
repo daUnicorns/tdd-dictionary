@@ -5,6 +5,8 @@ var main = require('../main.js');
 var istanbul = require('istanbul');
 var server = require('../server.js');
 
+////////////////////////////// main.js tests //////////////////////////////
+
 test("tests if main.js has access to words.txt", function(t) {
    t.deepEquals(main2.wordImporter('A'), 0, "I can't believe it! A is position 0 in the array");
    t.end();
@@ -27,4 +29,11 @@ test("does the getAPIobject function return the word that we searched", function
       t.deepEquals(result, expected, "success!!!!!!!!");
       t.end();
    }, 1000);
+});
+
+////////////////////////////// server.js tests //////////////////////////////
+
+test("tests if the url 'localhost:8080' returns the index.html", function(t) {
+   t.deepEquals(main2.wordImporter('A'), 0, "I can't believe it! A is position 0 in the array");
+   t.end();
 });
