@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for tdd-dictionary/server.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">tdd-dictionary/</a> server.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">27.78% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>10/36</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">16.67% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>2/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/3</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">27.78% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>10/36</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var http = require("http");
+var port = process.env.PORT || 8080;
+var fs = require('fs');
+var stylesheet = fs.readFileSync('./style.css');
+var index = fs.readFileSync('./index.html');
+var words = fs.readFileSync('./words.txt');
+var qs = require('querystring');
+// var main = require("main.js");
+&nbsp;
+<span class="fstat-no" title="function not covered" >function handler(request, response){</span>
+<span class="cstat-no" title="statement not covered" >  var url = request.url;</span>
+<span class="cstat-no" title="statement not covered" >  console.log(url);</span>
+<span class="cstat-no" title="statement not covered" >  if(url === '/style.css'){</span>
+<span class="cstat-no" title="statement not covered" >    response.writeHead(200, {"Content-Type": "text/css"});</span>
+<span class="cstat-no" title="statement not covered" >    response.end(stylesheet);</span>
+<span class="cstat-no" title="statement not covered" >    console.log('style.css has been sent');</span>
+  }
+  else <span class="cstat-no" title="statement not covered" >if (request.method === 'POST' &amp;&amp; request.url === '/') {</span>
+<span class="cstat-no" title="statement not covered" >    var body = '';</span>
+<span class="cstat-no" title="statement not covered" >    request.on('data', <span class="fstat-no" title="function not covered" >function(chunk) {</span></span>
+<span class="cstat-no" title="statement not covered" >      body += chunk;</span>
+    });
+<span class="cstat-no" title="statement not covered" >    request.on('end', <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >      var data = qs.parse(body);</span>
+<span class="cstat-no" title="statement not covered" >      response.writeHead(200);</span>
+<span class="cstat-no" title="statement not covered" >      var dataObj = JSON.stringify(data.search);</span>
+<span class="cstat-no" title="statement not covered" >      var html = index.toString();</span>
+<span class="cstat-no" title="statement not covered" >      html += "&lt;h2&gt;" + dataObj + "&lt;/h2&gt;";</span>
+<span class="cstat-no" title="statement not covered" >      response.end(html);</span>
+    });
+  }
+  else <span class="cstat-no" title="statement not covered" >if(url.length === 1) {</span>
+<span class="cstat-no" title="statement not covered" >    response.writeHead(200, {"Content-Type": "text/html"});</span>
+<span class="cstat-no" title="statement not covered" >    response.end(index);</span>
+  }
+  else <span class="cstat-no" title="statement not covered" >if(url === '/words.txt') {</span>
+<span class="cstat-no" title="statement not covered" >    response.writeHead(200);</span>
+<span class="cstat-no" title="statement not covered" >    console.log(words.toString());</span>
+<span class="cstat-no" title="statement not covered" >    response.end(words);</span>
+  }
+else {
+<span class="cstat-no" title="statement not covered" >    response.writeHead(404);</span>
+<span class="cstat-no" title="statement not covered" >    response.end();</span>
+  }
+}
+&nbsp;
+http.createServer(handler).listen(port);
+console.log("Server is listening");
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Feb 12 2016 17:50:01 GMT+0000 (GMT)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
