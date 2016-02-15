@@ -15,7 +15,9 @@ test("tests if main.js will return an array including the searched word and the 
 });
 
 test("tests if randomDefintion() will return a random definiton from an array of words ", function(t) {
-   t.deepEquals(main2.randomWord(["cat", "dog", "bird"]), "cat"||"dog"||"bird", "There's a random word!");
+  var result = typeof main2.randomWord(["cat", "dog", "bird"]);
+  var expected = "string";
+   t.deepEquals(result, expected, "There's a random word!");
    t.end();
 });
 
