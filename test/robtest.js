@@ -4,6 +4,7 @@ var colors = require('colors');
 var main2 = require('../main2.js');
 var istanbul = require('istanbul');
 var server = require('../server.js');
+var shot = require('shot');
 
 
 ////////////////////////////// main.js tests //////////////////////////////
@@ -12,7 +13,7 @@ test("tests if main.js will return an array including the searched word and the 
    t.deepEquals(main2.arrayMaker("A"), ['A', 'a', 'aa', 'aal', 'aalii'], "There's an array baby!!");
    t.end();
 });
-test("tests if I can grab the API key", function(t) {
+test("tests if we can grab the API key", function(t) {
    t.deepEquals(main2.printApi().length, 49, "we hid the api key, such magic so magician ");
    t.end();
 });
@@ -23,18 +24,23 @@ test("does the getAPIobject function return the word that we searched", function
       result = word;
    });
    setTimeout(function(x) {
-      t.deepEquals(result, expected, "success!!!!!!!!");
+      t.deepEquals(result, expected, "We have our word. Life is great!!!!!!!!");
       t.end();
    }, 1000);
 });
 ////////////////////////////// server.js tests //////////////////////////////
 
-// test("tests if the url 'localhost:8080' returns the index.html", function(t) {
-//    t.deepEquals(main2.wordImporter('A'), 0, "I can't believe it! A is position 0 in the array again");
-//    t.end();
-// });
+test('Does the server respond with 200', function(t) {
+   shot.inject(server.handler, {method: 'GET', url:'/'}, function(res) {
+      t.deepEquals(res.statusCode, 200, "One Hundred & Eighty!!! + 20");
+      t.end();
+   });
+});
 
-// test("tear downs", function(t) {
-//    server.close();
-//    t.end();
-// });
+test("tests if the url 'localhost:8080' returns the page", function(t) {
+   shot.inject(server.handler, {method: 'get', url:'http://localhost:8080'}, function(res) {
+      // console.log(res);
+      t.notDeepEqual(res.payload.indexOf('<title>daDicttionary</title>'), -1, "We have loaded our homepage.");
+      t.end();
+   });
+});
