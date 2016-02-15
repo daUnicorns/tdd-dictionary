@@ -9,6 +9,7 @@ var shot = require('shot');
 
 ////////////////////////////// main.js tests //////////////////////////////
 
+
 test("tests if main.js will return an array including the searched word and the 4 that come after it", function(t) {
    t.deepEquals(main2.arrayMaker("A"), ['A', 'a', 'aa', 'aal', 'aalii'], "There's an array baby!!");
    t.end();
@@ -48,8 +49,27 @@ test('Does the server respond with 200', function(t) {
 
 test("tests if the url 'localhost:8080' returns the page", function(t) {
    shot.inject(server.handler, {method: 'get', url:'http://localhost:8080'}, function(res) {
-      // console.log(res);
       t.notDeepEqual(res.payload.indexOf('<title>daDicttionary</title>'), -1, "We have loaded our homepage.");
       t.end();
    });
 });
+
+test("If url has /words.txt it will return the file word.txt", function(t) {
+   shot.inject(server.handler, {method: 'get', url: 'http://localhost:8080/words.txt'}, function(res) {
+      t.deepEquals(res.payload.indexOf('A'), 0, "Then A is 0.");
+      t.end();
+   });
+});
+
+test("Testing to see if cs/js files are loaded when index.html loads.", function(t) {
+   shot.inject(server.handler, {method: 'get', url: 'http://localhost:8080/style.css'}, function(res) {
+      t.notDeepEqual(res.payload.indexOf('url(https://fonts.googleapis.com/css?family=Special+Elite|Audiowide|VT323|Kelly+Slab') -1, "This is some junk from the CSS. =)");
+      t.end();
+   });
+});
+
+server.server.close();
+
+// test("We're going to test the chunking function now", function(t) {
+//
+// });

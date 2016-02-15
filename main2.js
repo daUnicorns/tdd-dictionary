@@ -1,5 +1,6 @@
 /////////////////////// CREATE THE ARRAY OF MATCHING WORDS //////////////////////
 
+
 var fs = require('fs');
 require('env2')('config.env');
 
