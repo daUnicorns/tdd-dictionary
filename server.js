@@ -22,12 +22,13 @@ function handler(request, response){
     });
     request.on('end', function() {
       var data = qs.parse(body);
-
-      response.writeHead(200);
+      //
+      // response.writeHead(200);
       var dataObj = data.search;
       var resultArray = main2.arrayMaker(dataObj);
+      var randomChosenWord = main2.randomWord(resultArray);
       var result;
-      main2.getDefinition(apiKey, dataObj, function(word) {
+      main2.getDefinition(apiKey, randomChosenWord, function(word) {
          result = word;
       });
 
