@@ -15,19 +15,18 @@ var apiKey = process.env.DB_API;
 function handler(request, response){
   var url = request.url;
   console.log(url);
-  if (request.method === 'POST' && request.url === '/') {
-    var body = '';
-    request.on('data', function(chunk) {
-      body += chunk;
-    });
-    request.on('end', function() {
-      var data = qs.parse(body);
+  if (url.match('/search')) {
+    // var body = '';
+    // request.on('data', function(chunk) {
+    //   body += chunk;
+    // });
+    // request.on('end', function() {
 
-      response.writeHead(200);
-      var dataObj = data.search;
-      var resultArray = main2.arrayMaker(dataObj);
+      var data = url.split("/search")[1];
+      console.log("DATAAAAAA", data);
+      var resultArray = main2.arrayMaker(data);
       var result;
-      main2.getDefinition(apiKey, dataObj, function(word) {
+      main2.getDefinition(apiKey, data, function(word) {
          result = word;
       });
 
@@ -35,7 +34,7 @@ function handler(request, response){
         var finalResult = resultArray.join("*") + "*" + result;
         response.end(finalResult);
       }, 1000);
-    });
+    // });
   }
   else if(url.length === 1) {
     response.writeHead(200, {"Content-Type": "text/html"});
