@@ -14,6 +14,15 @@ test("tests if main.js will return an array including the searched word and the 
    t.deepEquals(main2.arrayMaker("A"), ['A', 'a', 'aa', 'aal', 'aalii'], "There's an array baby!!");
    t.end();
 });
+
+test("tests if randomDefintion() will return a random definiton from an array of words ", function(t) {
+  var result = typeof main2.randomWord(["cat", "dog", "bird"]);
+  var expected = "string";
+   t.deepEquals(result, expected, "There's a random word!");
+   t.end();
+});
+
+
 test("tests if we can grab the API key", function(t) {
    t.deepEquals(main2.printApi().length, 49, "we hid the api key, such magic so magician ");
    t.end();

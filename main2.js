@@ -24,6 +24,10 @@ function arrayMaker(value) {
    }
    return array;
 }
+/// generate random value
+function randomWord(arr){
+  return arr[Math.floor(Math.random() * arr.length)];
+}
 
 ////////////////////// GRAB THE DEFINITION OF A WORD ////////////////////////////
 
@@ -65,5 +69,6 @@ function chunkingFunc(res, callback) {
 module.exports = {
    arrayMaker: arrayMaker,
    printApi: printApi,
-   getDefinition: getDefinition
+   getDefinition: getDefinition,
+   randomWord : randomWord
 };
