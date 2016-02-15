@@ -6,6 +6,7 @@ var index = fs.readFileSync('./index.html');
 var words = fs.readFileSync('./words.txt');
 var qs = require('querystring');
 var main2 = require('./main2.js');
+var main = fs.readFileSync("./main.js");
 require('env2')('config.env');
 
 var apiKey = process.env.DB_API;
@@ -14,12 +15,7 @@ var apiKey = process.env.DB_API;
 function handler(request, response){
   var url = request.url;
   console.log(url);
-  if(url === '/style.css'){
-    response.writeHead(200, {"Content-Type": "text/css"});
-    response.end(stylesheet);
-    console.log('style.css has been sent');
-  }
-  else if (request.method === 'POST' && request.url === '/') {
+  if (request.method === 'POST' && request.url === '/') {
     var body = '';
     request.on('data', function(chunk) {
       body += chunk;
@@ -31,13 +27,13 @@ function handler(request, response){
       var dataObj = data.search;
       var resultArray = main2.arrayMaker(dataObj);
       var result;
-      var resultDefinition = main2.getDefinition(apiKey, dataObj, function(word) {
+      main2.getDefinition(apiKey, dataObj, function(word) {
          result = word;
       });
-      console.log("here is the result array ", resultArray);
+
       setTimeout(function(){
-        console.log("here is the result defintion", result);
-        response.end(result);
+        var finalResult = resultArray.join("*") + "*" + result;
+        response.end(finalResult);
       }, 1000);
     });
   }
@@ -51,10 +47,20 @@ function handler(request, response){
     response.end(words);
   }
 else {
-    response.writeHead(404);
+  fs.readFile(__dirname + url, function(error, file){
+  if (error){
+    console.log(error);
     response.end();
+  } else {
+    var ext = url.split('.')[1];
+    response.writeHead(200, {'Content-Type' : 'text/' + ext});
+    response.end(file);
+  }
+});
   }
 }
+
+
 
 http.createServer(handler).listen(port);
 console.log("Server is listening");
