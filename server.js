@@ -44,7 +44,6 @@ function handler(request, response){
   }
   else if(url === '/words.txt') {
     response.writeHead(200);
-    console.log(words.toString());
     response.end(words);
   }
 else {
@@ -63,9 +62,10 @@ else {
 
 
 
-http.createServer(handler).listen(port);
+var server = http.createServer(handler).listen(port);
 console.log("Server is listening");
 
 module.exports = {
-   handler: handler
+   handler: handler,
+   server: server
 };
