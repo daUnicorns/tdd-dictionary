@@ -46,3 +46,7 @@ else {
 
 http.createServer(handler).listen(port);
 console.log("Server is listening");
+
+module.exports = {
+   handler: handler
+};
