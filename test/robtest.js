@@ -10,7 +10,7 @@ var shot = require('shot');
 ////////////////////////////// main.js tests //////////////////////////////
 
 test("tests if main.js has access to words.txt", function(t) {
-   t.deepEquals(main2.wordImporter('A'), 0, "I can't believe it! A is position 0 in the array");
+   t.deepEquals(main2.wordFinder('A'), 0, "I can't believe it! A is position 0 in the array");
    t.end();
 });
 test("tests if main.js will return an array including the searched word and the 4 that come after it", function(t) {

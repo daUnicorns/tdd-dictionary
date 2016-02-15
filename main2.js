@@ -62,8 +62,8 @@ function chunkingFunc(res, callback) {
 
 
 module.exports = {
-   wordImporter: wordImporter,
+   wordFinder: wordFinder,
    arrayMaker: arrayMaker,
-   printApi: printApi
+   printApi: printApi,
    getDefinition: getDefinition
 };
