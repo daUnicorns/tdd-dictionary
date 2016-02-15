@@ -1,5 +1,4 @@
-// 
-// function printData(value) {
-//   document.getElementById('definition').innerHTML = ;
-//
-// }
+function printData(value) {
+  document.getElementById('definition').innerHTML = ;
+
+}

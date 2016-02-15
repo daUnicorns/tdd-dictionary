@@ -1,5 +1,6 @@
 /////////////////////// CREATE THE ARRAY OF MATCHING WORDS //////////////////////
 
+
 var fs = require('fs');
 require('env2')('config.env');
 
@@ -7,17 +8,17 @@ function printApi() {
    return process.env.DB_API;
 }
 
-function wordFinder(value) {
+
   var words = fs.readFileSync('words.txt');
-  var ArrayOfWords = words.toString().toLowerCase().split('\n');
-  return ArrayOfWords.indexOf(value.toLowerCase());
-}
+  var ArrayOfWordsLowerCase = words.toString().toLowerCase().split('\n');
+  var ArrayOfWords = words.toString().split('\n');
+
 
 function arrayMaker(value) {
-   var placeInArray = wordFinder(value);
+   var placeInArray = ArrayOfWordsLowerCase.indexOf(value.toLowerCase());
    var array = [];
    for (var counter = placeInArray; counter < placeInArray+5; counter++) {
-     if (ArrayOfWords[counter].match(/value/gi).length > 0) {
+     if (ArrayOfWordsLowerCase[counter].indexOf(value.toLowerCase())>-1) {
        array.push(ArrayOfWords[counter]);
      }
    }
@@ -62,7 +63,6 @@ function chunkingFunc(res, callback) {
 
 
 module.exports = {
-   wordFinder: wordFinder,
    arrayMaker: arrayMaker,
    printApi: printApi,
    getDefinition: getDefinition
