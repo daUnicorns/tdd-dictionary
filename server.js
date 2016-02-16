@@ -62,10 +62,10 @@ else {
 }
 
 
-
-http.createServer(handler).listen(port);
+var server = http.createServer(handler).listen(port);
 console.log("Server is listening");
 
 module.exports = {
-   handler: handler
+   handler: handler,
+   server: server
 };

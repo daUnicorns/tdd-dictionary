@@ -1,13 +1,12 @@
 var test = require('tape');
 var main2 = require('../main2.js');
 var colors = require('colors');
-var main2 = require('../main2.js');
 var istanbul = require('istanbul');
 var server = require('../server.js');
 var shot = require('shot');
 
 
-////////////////////////////// main.js tests //////////////////////////////
+////////////////////////////// main2.js tests //////////////////////////////
 
 test("tests if main.js will return an array including the searched word and the 4 that come after it", function(t) {
    t.deepEquals(main2.arrayMaker("A"), ['A', 'a', 'aa', 'aal', 'aalii'], "There's an array baby!!");
@@ -37,7 +36,7 @@ test("does the getAPIobject function return the word that we searched", function
       t.end();
    }, 1000);
 });
-////////////////////////////// server.js tests //////////////////////////////
+//////////////////////////// server.js tests //////////////////////////////
 
 test('Does the server respond with 200', function(t) {
    shot.inject(server.handler, {method: 'GET', url:'/'}, function(res) {
@@ -52,4 +51,8 @@ test("tests if the url 'localhost:8080' returns the page", function(t) {
       t.notDeepEqual(res.payload.indexOf('<title>daDicttionary</title>'), -1, "We have loaded our homepage.");
       t.end();
    });
+});
+test("teardown", function(t){
+    server.server.close();
+    t.end();
 });
