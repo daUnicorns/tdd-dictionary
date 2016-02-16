@@ -58,8 +58,6 @@ else {
   }
 }
 
-
-
 var server = http.createServer(handler).listen(port);
 console.log("Server is listening");
 
