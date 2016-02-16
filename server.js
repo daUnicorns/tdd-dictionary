@@ -5,28 +5,21 @@ var stylesheet = fs.readFileSync('./style.css');
 var index = fs.readFileSync('./index.html');
 var words = fs.readFileSync('./words.txt');
 var qs = require('querystring');
-var main2 = require('./main2.js');
+var response = require('./response.js');
 var main = fs.readFileSync("./main.js");
 require('env2')('config.env');
 
 var apiKey = process.env.DB_API;
-// var main = require("main.js");
 
 function handler(request, response){
   var url = request.url;
   console.log(url);
   if (url.match('/search')) {
-    // var body = '';
-    // request.on('data', function(chunk) {
-    //   body += chunk;
-    // });
-    // request.on('end', function() {
-
       var data = url.split("/search")[1];
       console.log("DATAAAAAA", data);
-      var resultArray = main2.arrayMaker(data);
+      var resultArray = response.arrayMaker(data);
       var result;
-      main2.getDefinition(apiKey, data, function(word) {
+      response.getDefinition(apiKey, data, function(word) {
          result = word;
       });
 
@@ -34,7 +27,6 @@ function handler(request, response){
         var finalResult = resultArray.join("*") + "*" + result;
         response.end(finalResult);
       }, 1000);
-    // });
   }
   else if(url.length === 1) {
     response.writeHead(200, {"Content-Type": "text/html"});
