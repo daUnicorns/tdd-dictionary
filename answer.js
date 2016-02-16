@@ -14,14 +14,24 @@ function printApi() {
 
 
 function arrayMaker(value) {
-   var placeInArray = ArrayOfWordsLowerCase.indexOf(value.toLowerCase());
-   var array = [];
-   for (var counter = placeInArray; counter < placeInArray+5; counter++) {
-     if (ArrayOfWordsLowerCase[counter].indexOf(value.toLowerCase())>-1) {
-       array.push(ArrayOfWords[counter]);
-     }
+  var arrayOfMatches = [];
+   var wordInArray = ArrayOfWordsLowerCase.forEach(function(item){
+     if(item.indexOf(value) == 0){arrayOfMatches.push(item)}
+   });
+   var result;
+   if (arrayOfMatches.length > 5){
+     result = arrayOfMatches.slice(0, 5);
    }
-   return array;
+  //  var placeInArray = ArrayOfWordsLowerCase.indexOf(value.toLowerCase());
+   //
+  //  var array = [];
+  //  var reg1 = new RegExp( '^' + value.toLowerCase() + '$');
+  //  for (var counter = placeInArray; counter < placeInArray+5; counter++) {
+  //    if (ArrayOfWordsLowerCase[counter].indexOf(value.toLowerCase())>-1) {
+  //      array.push(ArrayOfWords[counter]);
+  //    }
+  //  }
+   return result;
 }
 /// generate random value
 function randomWord(arr){
