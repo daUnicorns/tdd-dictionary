@@ -8,7 +8,6 @@ function printApi() {
    return process.env.DB_API;
 }
 
-
   var words = fs.readFileSync('words.txt');
   var ArrayOfWordsLowerCase = words.toString().toLowerCase().split('\n');
   var ArrayOfWords = words.toString().split('\n');
@@ -63,7 +62,6 @@ function chunkingFunc(res, callback) {
       console.log("errorrrrrrrrrrrrrrrrrrrr" + e.message);
    });
 }
-
 
 
 module.exports = {

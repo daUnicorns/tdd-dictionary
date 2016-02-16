@@ -13,7 +13,6 @@ function importData() {
 }
 
 function printData(arr) {
-  // var array = arr.split("*");
   var definition = arr[arr.length-1];
   console.log(definition);
   document.getElementById('definition').innerHTML = definition;
@@ -24,7 +23,3 @@ document.getElementById("form").addEventListener("submit", function(e) {
   importData();
   console.log("yes");
 });
-
-// module.exports = {
-//    printData : printData
-// };
