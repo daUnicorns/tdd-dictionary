@@ -67,6 +67,14 @@ test("Testing to see if cs/js files are loaded when index.html loads.", function
    });
 });
 
+// test("Testing that a word is searched", function(t) {
+//    shot.inject(server.handler, {method: "get", url: "http://localhost:8080/search"}, function(res) {
+//       console.log(res);
+//       t.deepEquals();
+//       t.end();
+//    });
+// });
+
 server.server.close();
 
 // test("We're going to test the chunking function now", function(t) {
