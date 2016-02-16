@@ -2,3 +2,4 @@ apiKey.js
 api.js
 config.env
 node_modules
+coverage
