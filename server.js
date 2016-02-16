@@ -5,7 +5,7 @@ var stylesheet = fs.readFileSync('./style.css');
 var index = fs.readFileSync('./index.html');
 var words = fs.readFileSync('./words.txt');
 var qs = require('querystring');
-var response = require('./response.js');
+var answer = require('./answer.js');
 var main = fs.readFileSync("./main.js");
 require('env2')('config.env');
 
@@ -17,9 +17,9 @@ function handler(request, response){
   if (url.match('/search')) {
       var data = url.split("/search")[1];
       console.log("DATAAAAAA", data);
-      var resultArray = response.arrayMaker(data);
+      var resultArray = answer.arrayMaker(data);
       var result;
-      response.getDefinition(apiKey, data, function(word) {
+      answer.getDefinition(apiKey, data, function(word) {
          result = word;
       });
 
