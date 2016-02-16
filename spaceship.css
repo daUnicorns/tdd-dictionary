@@ -15,9 +15,6 @@ body {
     100% {-webkit-transform: rotate(360deg);}
 }
 
-
-
-
 .spaceship{
   background-image: url("http://i287.photobucket.com/albums/ll124/falk826/Out%20of%20This%20World/spaceship.png");
   width: 100px;
@@ -62,10 +59,10 @@ body {
   -webkit-animation-delay: 5s; /* Chrome, Safari, Opera */
     animation-delay: 5s;
 }
-.answer:hover {
+.right-answer:hover {
   background-image: url("http://2.bp.blogspot.com/-u7TuZhsmnu0/U1-HRlxVm-I/AAAAAAAAkoY/wjJpr2C4LYQ/s1600/Monster+-+three+eyed+monster.png");
 }
-.wronganswer:hover{
+.wrong-answer:hover{
   background-image: url("https://waka5f2012.wikispaces.com/file/view/furi=sad.png/368872430/302x312/furi=sad.png");
 }
 @-webkit-keyframes shake {
