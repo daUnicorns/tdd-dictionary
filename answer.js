@@ -45,6 +45,7 @@ var querystring = require('querystring');
 var config = require('env2')('config.env');
 
 function getDefinition(apiKey, searchedWord, cb) {
+  console.log("searchedWord", searchedWord);
    var options = {
       hostname: "api.wordnik.com",
       path: "/v4/word.json/" + searchedWord + "/definitions?limit=200&includeRelated=true&useCanonical=false&includeTags=false&api_key=" + apiKey,
