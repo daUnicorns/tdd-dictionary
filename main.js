@@ -19,7 +19,7 @@ function printData(arr) {
     for(var i=0; i<arr.length; i++) {
       if(arr[i].indexOf("$") > -1) return arr[i].replace("$", "");
     }
-  }
+};
 
   var classElements = document.getElementsByClassName("spaceship");
   for(var i=0; i < (arr.length) -1; i++) {
