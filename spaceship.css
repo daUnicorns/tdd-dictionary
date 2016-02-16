@@ -1,0 +1,108 @@
+body {
+  background-color: black;
+}
+
+.spingalaxy {
+    margin-top: -350px;
+    margin-left: -160px;
+    width: 125%;
+
+    -webkit-animation: spin 30s infinite linear;
+}
+
+@-webkit-keyframes spin {
+    0%  {-webkit-transform: rotate(0deg);}
+    100% {-webkit-transform: rotate(360deg);}
+}
+
+
+
+
+.spaceship{
+  background-image: url("http://i287.photobucket.com/albums/ll124/falk826/Out%20of%20This%20World/spaceship.png");
+  width: 100px;
+  height: 100px;
+  background-size: 100px 100px;
+  position: absolute;
+  margin-top: -700px;
+}
+
+.spaceship1{
+  margin-left: 300px
+}
+.spaceship2{
+  margin-left: 500px;
+}
+.spaceship3{
+  margin-left: 700px;
+}
+.spaceship4{
+  margin-left: 900px;
+}
+.spaceship5{
+  margin-left: 1100px;
+}
+.delay1{
+  -webkit-animation-delay: 1s; /* Chrome, Safari, Opera */
+    animation-delay: 1s;
+}
+.delay2{
+  -webkit-animation-delay: 3s; /* Chrome, Safari, Opera */
+    animation-delay: 3s;
+}
+.delay3{
+  -webkit-animation-delay: 5s; /* Chrome, Safari, Opera */
+    animation-delay: 5s;
+}
+.delay4{
+  -webkit-animation-delay: 7s; /* Chrome, Safari, Opera */
+    animation-delay: 7s;
+}
+.delay5{
+  -webkit-animation-delay: 5s; /* Chrome, Safari, Opera */
+    animation-delay: 5s;
+}
+.answer:hover {
+  background-image: url("http://2.bp.blogspot.com/-u7TuZhsmnu0/U1-HRlxVm-I/AAAAAAAAkoY/wjJpr2C4LYQ/s1600/Monster+-+three+eyed+monster.png");
+}
+.wronganswer:hover{
+  background-image: url("https://waka5f2012.wikispaces.com/file/view/furi=sad.png/368872430/302x312/furi=sad.png");
+}
+@-webkit-keyframes shake {
+    0%,  {-webkit-transform: translatex(0px) translatey(0px);}
+    5% {-webkit-transform: translateX(50px) translatey(-50px);}
+    10% {-webkit-transform: translateX(100px) translatey(-100px);}
+    15% {-webkit-transform: translateX(150px) translatey(-150px);}
+    20% {-webkit-transform: translateX(200px) translatey(-200px);}
+    25% {-webkit-transform: translateX(250px) translatey(-250x);}
+    30% {-webkit-transform: translateX(200px) translatey(-300px);}
+    35% {-webkit-transform: translateX(150px) translatey(-350px);}
+    40% {-webkit-transform: translateX(100px) translatey(-400px);}
+    45% {-webkit-transform: translateX(50px) translatey(-450px);}
+    50% {-webkit-transform: translateX(0px) translatey(-500px);}
+    55% {-webkit-transform: translateX(-50px) translatey(-450px);}
+    60% {-webkit-transform: translateX(-100px) translatey(-400px);}
+    65% {-webkit-transform: translateX(-150px) translatey(-350px);}
+    70% {-webkit-transform: translateX(-200px) translatey(-300px);}
+    75% {-webkit-transform: translateX(-250px) translatey(-250px);}
+    80% {-webkit-transform: translateX(-200px) translatey(-200px);}
+    85% {-webkit-transform: translateX(-150px) translatey(-150px);}
+    90% {-webkit-transform: translateX(-100px) translatey(-100px);}
+    95% {-webkit-transform: translateX(-50px) translatey(-50px);}
+    100% {-webkit-transform: translateX(0px) translatey(0px);}
+  }
+
+.shake {
+    -webkit-animation-name: shake;
+    animation-name: shake;
+}
+
+.animated {
+    -webkit-animation-duration: 8s;
+    animation-duration: 8s;
+    -webkit-transition-timing-function: linear; /* Safari and Chrome */
+    transition-timing-function: linear;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+}

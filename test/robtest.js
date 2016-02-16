@@ -1,13 +1,12 @@
 var test = require('tape');
 var main2 = require('../main2.js');
 var colors = require('colors');
-var main2 = require('../main2.js');
 var istanbul = require('istanbul');
 var server = require('../server.js');
 var shot = require('shot');
 
 
-////////////////////////////// main.js tests //////////////////////////////
+////////////////////////////// main2.js tests //////////////////////////////
 
 
 test("tests if main.js will return an array including the searched word and the 4 that come after it", function(t) {
@@ -38,7 +37,7 @@ test("does the getAPIobject function return the word that we searched", function
       t.end();
    }, 1000);
 });
-////////////////////////////// server.js tests //////////////////////////////
+//////////////////////////// server.js tests //////////////////////////////
 
 test('Does the server respond with 200', function(t) {
    shot.inject(server.handler, {method: 'GET', url:'/'}, function(res) {
@@ -69,7 +68,3 @@ test("Testing to see if cs/js files are loaded when index.html loads.", function
 });
 
 server.server.close();
-
-// test("We're going to test the chunking function now", function(t) {
-//
-// });
