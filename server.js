@@ -61,7 +61,7 @@ else {
 
 
 var server = http.createServer(handler).listen(port);
-console.log("Server is listening");
+console.log("Server is listening at localhost:8080");
 
 module.exports = {
    handler: handler,
