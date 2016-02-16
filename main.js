@@ -8,8 +8,10 @@ function importData() {
     }
   };
 
-  xhr.open("POST", "/search" + formData);
-  xhr.send();
+  setTimeout(function() {
+    xhr.open("POST", "/search" + formData);
+    xhr.send();
+  }, 1000);
 }
 
 function printData(arr) {
