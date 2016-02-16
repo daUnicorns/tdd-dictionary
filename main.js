@@ -25,15 +25,19 @@ function printData(arr) {
   for(var i=0; i < (arr.length) -1; i++) {
     if(arr[i].indexOf("$") > -1) {
       classElements[i].innerHTML = arr[i].replace("$", "");
-      classElements[i].setAttribute("id", "rightAnswer");
+      classElements[i].setAttribute("id", "right-answer");
     } else {
       classElements[i].innerHTML = arr[i];
+      classElements[i].setAttribute("id", "wrong-answer");
     }
   }
 
 
   var definition = arr[arr.length-1];
-  document.getElementById('definition').innerHTML = definition;
+  var defElement = document.getElementById('definition');
+  defElement.innerHTML = definition;
+  defElement.setAttribute("class", "background");
+  document.getElementById('definitionBox').setAttribute("class", "flyingdefinition flyin");
 }
 
 document.getElementById("form").addEventListener("submit", function(e) {
