@@ -22,14 +22,17 @@ function handler(request, response){
       var randomWord = answer.randomWord(resultArray);
       answer.getDefinition(apiKey, randomWord, function(word) {
          result = word;
+         for(var i=0; i < resultArray.length; i++) {
+           if(resultArray[i] == randomWord) resultArray[i] += "$";
+         }
+         var finalResult = resultArray.join("*") + "*" + result;
+         console.log(finalResult);
+         response.end(finalResult);
       });
-      for(var i=0; i < resultArray.length; i++) {
-        if(resultArray[i] == randomWord) resultArray[i] += "$";
-      }
-      setTimeout(function(){
-        var finalResult = resultArray.join("*") + "*" + result;
-        response.end(finalResult);
-      }, 1000);
+      // setTimeout(function(){
+      //   var finalResult = resultArray.join("*") + "*" + result;
+      //   response.end(finalResult);
+      // }, 2000);
   }
   else if(url.length === 1) {
     response.writeHead(200, {"Content-Type": "text/html"});
