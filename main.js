@@ -13,8 +13,24 @@ function importData() {
 }
 
 function printData(arr) {
+  var rightAnswer = function() {
+    for(var i=0; i<arr.length; i++) {
+      if(arr[i].indexOf("$") > -1) return arr[i].replace("$", "");
+    }
+  }
+
+  var classElements = document.getElementsByClassName("spaceship");
+  for(var i=0; i < (arr.length) -1; i++) {
+    if(arr[i].indexOf("$") > -1) {
+      classElements[i].innerHTML = arr[i].replace("$", "");
+      classElements[i].setAttribute("id", "rightAnswer");
+    } else {
+      classElements[i].innerHTML = arr[i];
+    }
+  }
+
+
   var definition = arr[arr.length-1];
-  console.log(definition);
   document.getElementById('definition').innerHTML = definition;
 }
 

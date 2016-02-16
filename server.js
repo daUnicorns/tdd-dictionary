@@ -19,10 +19,13 @@ function handler(request, response){
       console.log("DATAAAAAA", data);
       var resultArray = answer.arrayMaker(data);
       var result;
-      answer.getDefinition(apiKey, data, function(word) {
+      var randomWord = answer.randomWord(resultArray);
+      answer.getDefinition(apiKey, randomWord, function(word) {
          result = word;
       });
-
+      for(var i=0; i < resultArray.length; i++) {
+        if(resultArray[i] == randomWord) resultArray[i] += "$";
+      }
       setTimeout(function(){
         var finalResult = resultArray.join("*") + "*" + result;
         response.end(finalResult);

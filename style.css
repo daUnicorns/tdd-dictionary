@@ -56,3 +56,12 @@ p {
   font-weight: bold;
   font-size: 25px;
 }
+
+.spaceship {
+  color: blue;
+}
+
+#rightAnswer {
+  color: red;
+  font-size: 30px;
+}
