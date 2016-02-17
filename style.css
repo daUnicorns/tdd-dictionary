@@ -130,11 +130,11 @@ p {
  }
  .delay4{
    -webkit-animation-delay: 5s; /* Chrome, Safari, Opera */
-     animation-delay: 7s;
+     animation-delay: 5s;
  }
  .delay5{
-   -webkit-animation-delay: 4s; /* Chrome, Safari, Opera */
-     animation-delay: 5s;
+   -webkit-animation-delay: 7s; /* Chrome, Safari, Opera */
+     animation-delay: 7s;
  }
  #right-answer:hover {
    background-image: url("http://s2.postimg.org/awh21arw9/happy_teeth2.png");
@@ -177,6 +177,7 @@ p {
      animation-duration: 8s;
      -webkit-transition-timing-function: linear; /* Safari and Chrome */
      transition-timing-function: linear;
+     -webkit-transition-timing-function: linear;
      -webkit-animation-fill-mode: both;
      animation-fill-mode: both;
      animation-iteration-count: infinite;
