@@ -4,10 +4,10 @@ var colors = require('colors');
 var istanbul = require('istanbul');
 var server = require('../server.js');
 var shot = require('shot');
+var main = require('../main.js');
 
 
 ////////////////////////////// answer.js tests //////////////////////////////
-
 
 test("tests if answer.js will return an array including the searched word and the 4 that come after it", function(t) {
    t.deepEquals(answer.arrayMaker("A"), ['A', 'a', 'aa', 'aal', 'aalii'], "There's an array baby!!");
@@ -63,6 +63,13 @@ test("If url has /words.txt it will return the file word.txt", function(t) {
 test("Testing to see if cs/js files are loaded when index.html loads.", function(t) {
    shot.inject(server.handler, {method: 'get', url: 'http://localhost:8080/style.css'}, function(res) {
       t.notDeepEqual(res.payload.indexOf('url(https://fonts.googleapis.com/css?family=Special+Elite|Audiowide|VT323|Kelly+Slab') -1, "This is some junk from the CSS. =)");
+      t.end();
+   });
+});
+
+test("Testing that a word is searched", function(t) {
+   shot.inject(server.handler, {method: "get", url: "http://localhost:8080/search"}, function(res) {
+      t.deepEquals(res.payload.indexOf('A'), 0, "blah blah blah");
       t.end();
    });
 });

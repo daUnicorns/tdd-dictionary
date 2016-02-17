@@ -14,14 +14,19 @@ function printApi() {
 
 
 function arrayMaker(value) {
-  var arrayOfMatches = [];
-   var wordInArray = ArrayOfWordsLowerCase.forEach(function(item){
-     if(item.indexOf(value) == 0){arrayOfMatches.push(item)}
+   var arrayOfMatches = [];
+   var indexes = [];
+   ArrayOfWordsLowerCase.forEach(function(currentvalue, index, array){
+     if(currentvalue.indexOf(value.toLowerCase()) === 0) {indexes.push(index);}
    });
    var result;
-   if (arrayOfMatches.length > 5){
-     result = arrayOfMatches.slice(0, 5);
-   }
+   if (indexes.length > 5){
+     result = indexes.slice(0, 5);
+  }
+  for(var i = 0; i < result.length; i++){
+     arrayOfMatches.push(ArrayOfWords[result[i]]);
+ }
+
   //  var placeInArray = ArrayOfWordsLowerCase.indexOf(value.toLowerCase());
    //
   //  var array = [];
@@ -31,8 +36,9 @@ function arrayMaker(value) {
   //      array.push(ArrayOfWords[counter]);
   //    }
   //  }
-   return result;
+   return arrayOfMatches;
 }
+
 /// generate random value
 function randomWord(arr){
   console.log("ARRAY",arr);
