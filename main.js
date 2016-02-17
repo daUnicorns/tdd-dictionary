@@ -43,7 +43,6 @@ function printData(arr) {
 document.getElementById("form").addEventListener("submit", function(e) {
   e.preventDefault();
   importData();
-  console.log("yes");
 });
 
 module.exports = {
