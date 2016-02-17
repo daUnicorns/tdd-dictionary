@@ -45,3 +45,8 @@ document.getElementById("form").addEventListener("submit", function(e) {
   importData();
   console.log("yes");
 });
+
+module.exports = {
+   importData: importData,
+   printData: printData
+};

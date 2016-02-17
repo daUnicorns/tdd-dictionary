@@ -4,8 +4,6 @@ var colors = require('colors');
 var istanbul = require('istanbul');
 var server = require('../server.js');
 var shot = require('shot');
-var main = require('../main.js');
-
 
 ////////////////////////////// answer.js tests //////////////////////////////
 
@@ -74,7 +72,10 @@ test("Testing that a word is searched", function(t) {
    });
 });
 
+
 server.server.close();
+
+
 
 // test("We're going to test the chunking function now", function(t) {
 //
