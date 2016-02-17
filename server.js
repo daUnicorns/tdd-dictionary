@@ -13,10 +13,8 @@ var apiKey = process.env.DB_API;
 
 function handler(request, response){
   var url = request.url;
-  // console.log(url);
   if (url.match('/search')) {
       var data = url.split("/search")[1];
-      // console.log("DATAAAAAA", data);
       var resultArray = answer.arrayMaker(data);
       var result;
       var randomWord = answer.randomWord(resultArray);
@@ -26,13 +24,8 @@ function handler(request, response){
            if(resultArray[i] == randomWord) resultArray[i] += "$";
          }
          var finalResult = resultArray.join("*") + "*" + result;
-         // console.log(finalResult);
          response.end(finalResult);
       });
-      // setTimeout(function(){
-      //   var finalResult = resultArray.join("*") + "*" + result;
-      //   response.end(finalResult);
-      // }, 2000);
   }
   else if(url.length === 1) {
     response.writeHead(200, {"Content-Type": "text/html"});
