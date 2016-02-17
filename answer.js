@@ -35,6 +35,7 @@ function arrayMaker(value) {
 }
 /// generate random value
 function randomWord(arr){
+  console.log("ARRAY",arr);
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
@@ -53,8 +54,12 @@ function getDefinition(apiKey, searchedWord, cb) {
    };
    var req = http.request(options, function(apiRes) {
       chunkingFunc(apiRes, function(body) {
-         var definition = body[0].text;
-         return cb(definition);
+        if (body[0] == undefined) {
+          return cb("SORRY, THERE IS INTERFERENCE WITH THE MATSER SPACESHIP.TRY AGAIN");
+        } else {
+          var definition = body[0].text;
+          return cb(definition);
+        }
       });
    });
    req.end();

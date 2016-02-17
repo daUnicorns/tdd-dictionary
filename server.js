@@ -16,7 +16,6 @@ function handler(request, response){
   console.log(url);
   if (url.match('/search')) {
       var data = url.split("/search")[1];
-      console.log("DATAAAAAA", data);
       var resultArray = answer.arrayMaker(data);
       var result;
       var randomWord = answer.randomWord(resultArray);
